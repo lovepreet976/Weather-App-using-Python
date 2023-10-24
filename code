@@ -1,0 +1,64 @@
+import tkinter as tk
+import requests
+
+# I have entered the API key from OpenWeatherMap
+API_KEY = "dc456c5ca01fa7034cd0a81078365118"
+
+def fetch_weather():
+    city = city_entry.get()
+    try:
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+        response = requests.get(url)
+        data = response.json()
+
+        if data["cod"] == 200:
+            temperature = data["main"]["temp"]
+            humidity = data["main"]["humidity"]
+            wind_speed = data["wind"]["speed"]
+            weather_description = data["weather"][0]["description"]
+
+            result_label.config(
+                text=f"Temperature: {temperature}°C\nHumidity: {humidity}%\nWind Speed: {wind_speed} m/s\nDescription: {weather_description}",
+                fg="black",
+            )
+        else:
+            result_label.config(text="City not found", fg="red")
+
+    except Exception as e:
+        result_label.config(text="An error occurred", fg="red")
+
+def reset_weather():
+    city_entry.delete(0, tk.END)
+    result_label.config(text="", fg="black")
+
+app = tk.Tk()
+app.title("Weather App")
+app.geometry("300x500")
+
+custom_font = ("Arial", 15) 
+result_font = ("Helvetica", 17, "bold")
+
+# I have create a frame for the input and for the buttons
+input_frame = tk.Frame(app,bg="orange")
+input_frame.pack(pady=50)
+
+city_label = tk.Label(input_frame, text="Enter City:",fg="blue",bg="skyblue",font=custom_font)
+city_label.grid(row=0, column=0)
+
+city_entry = tk.Entry(input_frame,font=custom_font)
+city_entry.grid(row=1, column=0)
+
+get_weather_button = tk.Button(input_frame, text="Get Weather", command=fetch_weather,fg="green",bg="yellow",font=custom_font)
+get_weather_button.grid(row=2, column=0)
+
+reset_button = tk.Button(input_frame, text="Reset", command=reset_weather,fg="red",font=custom_font)
+reset_button.grid(row=3, column=0)
+
+# I have create a frame for displaying information regarding weather
+result_frame = tk.Frame(app,bg="lightblue")
+result_frame.pack()
+
+result_label = tk.Label(result_frame, text="", wraplength=300,pady=10,fg="orange",bg="yellow",font=result_font)
+result_label.pack()
+
+app.mainloop()
