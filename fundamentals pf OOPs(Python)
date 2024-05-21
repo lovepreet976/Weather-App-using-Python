@@ -1,0 +1,94 @@
+1.Introduction to ObjectOriented Programming (OOP) 
+ Object-Oriented Programming (OOP) is a paradigm for designing and organizing code in a way that models real-world entities and their interactions. It promotes the use of objects, which are instances of classes, to encapsulate data and behaviour. Python, as a versatile and powerful programming language, supports OOP principles extensively.  
+ 
+2.Fundamental 	Concepts 	of OOP 
+➢ Classes and Objects: 
+A class is a blueprint for creating objects. It defines attributes (data) and methods (functions) that the objects of that class will possess. Objects are instances of classes, representing specific instances of the real-world entities that the class models. 
+➢	Encapsulation: 
+Encapsulation involves bundling the data and the methods that operate on the data within a single unit, i.e., the class. It ensures that the internal representation of an object is hidden from the outside world, promoting data security and abstraction.  
+➢	Inheritance: 
+ Inheritance allows a class (subclass or derived class) to inherit attributes and methods from another class (superclass or base class). This facilitates code reuse and the creation of hierarchies of related classes.  
+➢	Polymorphism: 
+ Polymorphism enables different classes to be treated as instances of the same class through a common interface. It allows different objects to respond to the same method calls in ways that are specific to their individual classes. 
+ 
+3.Creating Classes and Objects in Python 
+➢ Class Declaration: 
+In Python, a class is defined using the class keyword followed by the class name. The class body contains attributes (variables) and methods (functions) that describe the behavior of the objects.  
+Example:  
+class Dog: 
+def __init__(self, name, age): self.name = name  self.age = age  
+def bark(self):  return "Woof!"  
+ 
+➢ Object Instantiation:  
+Objects are instances of classes. They are created using the class name followed by parentheses. The __init__ method, known as the constructor, initializes the object's attributes.  
+Example: 
+dog1 = Dog("Buddy", 3)  dog2 = Dog("Max", 5) 
+ 
+4.	Inheritance 	and Polymorphism 
+ 
+➢	Inheritance: 
+In 	Python, 	inheritance 	is accomplished 	by 	specifying 	the parent class in parentheses after the class name during class declaration. Example: 
+ class Labrador(Dog):  def fetch(self): 
+ return f"{self.name} is fetching the ball."  
+ 
+ 
+ 
+➢	Polymorphism: 
+ Polymorphism is exemplified by the ability to call methods on objects of different classes through a shared interface. 
+ Example: 
+ def introduce_pet(pet): 
+print(f"I have a pet named {pet.name}. It's {pet.age} 
+years old.")  
+labrador = Labrador("Charlie", 2) introduce_pet(dog1)      
+# Output: I have a pet named Buddy. It's 3 years old.  introduce_pet(labrador) 
+ # Output: I have a pet named 
+Charlie. It's 2 years old. 
+ 
+5.Benefits of OOP in Python Modularity and Reusability:  
+OOP promotes code reusability through class inheritance and modular design, which leads to cleaner and more organized code. Abstraction: Classes abstract away the complexities of the underlying implementation, making code easier to understand and maintain. 
+Encapsulation: Data hiding through encapsulation enhances data security and reduces the risk of unintended interference. Polymorphism: Polymorphism enables flexibility and adaptability in code, facilitating the handling of different types of objects through a common interface.  
+ 
+6. A simple code with explanation in python: 
+class Person:  
+def __init__(self, name, age):  
+           self.name = name self.age = age 
+def introduce(self): 
+return f"Hi, I'm {self.name} and I'm {self.age} years old." 
+def celebrate_birthday(self): 
+self.age += 1 return f"Happy birthday to {self.name}! They are now 
+{self.age} years old."  
+ 
+# Creating instances (objects) of the 
+Person class  person1=Person("Alice",25) 
+ person2 = Person("Bob", 30)  
+ 
+# Accessing object properties print(person1.name) # Output: Alice 
+print(person2.age)   # Output: 30  
+ 
+# Calling object methods print(person1.introduce())  # Output: 
+Hi, I'm Alice and I'm 25 years old.  
+ 
+print(person2.celebrate_birthday())  # Output: Happy birthday to Bob! They are now 31 years old.  
+Now, let's break down the OOP concepts used in the above code: Class (Person): A class is a blueprint for creating objects. In this example, Person is a class that defines the structure 	and 	behaviour 	of individuals.  
+Object (Instance): An object is an instance of a class. In the code, person1 and person2 are instances of the Person class, representing different individuals. 
+ Constructor (__init__): The __init__ method is a special method that gets called when an object is created from a class. It initializes the object's attributes. In our case, it initializes the name and age attributes. Attributes (name, age): Attributes are variables that hold data about the object's state. In this code, name and age are attributes that store the person's name and age.  
+Methods (introduce, celebrate_ birthday): Methods are functions defined within a class that define the behavior of objects created from that class. In this code, introduce method returns a formatted introduction, 	and celebrate_birthday method increments the age and returns a birthday message. 
+Encapsulation: Encapsulation refers to the concept of bundling data (attributes) and methods that operate on the data within a single unit (class). This helps in hiding the internal details of an object and provides a clean interface for interacting with it.  
+Information 	Hiding 	(Private 
+Members): In this code, we haven't explicitly marked any attributes or methods as private, but in Python, you can indicate private attributes/methods by prefixing them with an underscore (e.g., _name). This convention suggests that they should not be accessed directly from outside the class.  
+7. A mini project : weather app
+        
+Description:
+This is a weather app in which you have to enter the city name by which you can get to know about the weather of the city you want want to search.
+After, entering the name of the city. Click on get weather button to know the weather.
+You will have a full description about the weather such as Temperature, Humidty , Wind Speed etc.
+If you want to search or want to know updates of any other city. Click on reset button and then search.
+
+ 
+8. Conclusion: 
+Object-Oriented Programming in Python is a powerful paradigm that allows developers to create wellorganized, modular, and maintainable code. By utilizing classes, objects, inheritance, and polymorphism, developers can model real-world scenarios effectively and build robust applications. In conclusion, Python's support for OOP principles enhances its versatility and makes it a popular choice for a wide range of software development projects 
+ 
+ 
+ 
+ 
+ 
